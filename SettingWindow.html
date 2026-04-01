@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>設定ウィンドウ（レスポンシブ）</title>
+</head>
+
+<body
+  style="margin:0;padding:16px;background:#0b1220;color:#e5e7eb;font-family:'Segoe UI',system-ui,-apple-system,Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif;box-sizing:border-box;">
+
+  <!-- 置換ブロック：タイトルと閉じるを同じ行に -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin:0 0 12px 0;">
+    <h1 style="font-size:16px;margin:0;letter-spacing:.2px;color:#e2e8f0;">拡張機能設定</h1>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <!-- 必要ならここに将来的なグローバルコントロールを追加可能 -->
+      <button id="close-btn"
+        style="background:#334155;color:#e5e7eb;border:none;padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:600;">
+        閉じる
+      </button>
+    </div>
+  </div>
+
+
+  <!-- レスポンシブコンテナ：横幅に応じてカードを並べる -->
+  <div id="settings-grid"
+    style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;justify-content:flex-start;">
+    <!-- 各カードはフレックスアイテム。flex: 1 1 280px でミニマム幅を指定し、横並びされる -->
+
+    <section
+      style="flex:1 1 240px;min-width:220px;background:#111827;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px 14px;box-sizing:border-box;">
+      <h2 style="font-size:13px;margin:0 0 8px 0;color:#cbd5e1;">消音モード</h2>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+        <input type="checkbox" id="muteMode" style="accent-color:#22c55e;width:16px;height:16px;" />
+        <span style="color:#e5e7eb;">アラーム音を消す。（通知は表示されます。）</span>
+      </label>
+    </section>
+
+    <section
+      style="flex:1 1 320px;min-width:220px;background:#111827;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px 14px;box-sizing:border-box;">
+      <h2 style="font-size:13px;margin:0 0 8px 0;color:#cbd5e1;">時間帯スケジュール（自動ミュート/再生）</h2>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <label style="display:flex;align-items:center;gap:8px;color:#e5e7eb;">
+          <span style="white-space:nowrap;">開始時刻:</span>
+          <input type="time" id="scheduleStart"
+            style="padding:6px 8px; border-radius:8px; font-size:13px; outline:none;" />
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;color:#e5e7eb;">
+          <span style="white-space:nowrap;">終了時刻:</span>
+          <input type="time" id="scheduleEnd"
+            style="padding:6px 8px; border-radius:8px; font-size:13px; outline:none;" />
+        </label>
+        <button id="resetScheduleBtn" style="background:#334155;color:#e5e7eb;border:none;padding:6px 12px;
+                 border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;">
+          リセット
+        </button>
+        <div style="color:#94a3b8;font-size:12px;margin-top:6px;">
+          開始・終了の両方が入力されているとスケジュールが有効になります。
+        </div>
+      </div>
+    </section>
+
+    <section
+      style="flex:1 1 240px;min-width:220px;background:#111827;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px 14px;box-sizing:border-box;">
+      <h2 style="font-size:13px;margin:0 0 8px 0;color:#cbd5e1;">履歴</h2>
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+        <button id="showHistoryBtn"
+          style="background:#334155;color:#e5e7eb;border:none;padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:600;">履歴を表示</button>
+
+      </label>
+    </section>
+  </div>
+
+  <script src="SettingWindow.js"></script>
+</body>
+
+</html>

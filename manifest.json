@@ -1,0 +1,37 @@
+{
+  "name": "SplunkAlarmExtensions",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Inject UI panel only when the toolbar button is clicked (iframe-based UI).",
+  "permissions": [
+    "scripting",
+    "tabs",
+    "activeTab",
+    "storage",
+    "system.display"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "Inject / Toggle SplunkAlarm UI"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "UI_Panel.html",
+        "UI_Panel.js",
+        "AlarmSound.wav",
+        "SettingWindow.html",
+        "SettingWindow.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
