@@ -3,7 +3,7 @@
 // ===================================================================
 (() => {
   if (!chrome || !chrome.storage) {
-    console.warn('[SettingWindow] chrome.storage が利用できません。拡張環境で実行してください。');
+    console.log('[SettingWindow] chrome.storage が利用できません。拡張環境で実行してください。');
     return;
   }
 

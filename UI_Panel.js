@@ -48,7 +48,7 @@ function playAlarm() {
       alarmAudio.loop = true;
     }
     alarmAudio.currentTime = 0;
-    alarmAudio.play().catch(e => console.warn("[Alarm] 再生エラー:", e));
+    alarmAudio.play().catch(e => console.log("[Alarm] 再生エラー:", e));
   } catch (e) {
     console.error("[Alarm] 例外:", e);
   }
@@ -83,7 +83,7 @@ function loadSettingsFromStorage() {
       runtimeSettings.showHistory  = (typeof res.showHistory === 'boolean')                     ? res.showHistory  : runtimeSettings.showHistory;
     });
   } catch (e) {
-    console.warn('[UI] loadSettingsFromStorage error:', e);
+    console.log('[UI] loadSettingsFromStorage error:', e);
   }
 }
 
@@ -162,7 +162,7 @@ function addToHistory(item) {
       chrome.storage.local.set({ alertsHistory: arr });
     });
   } catch (e) {
-    console.warn('[UI] addToHistory error:', e);
+    console.log('[UI] addToHistory error:', e);
   }
 }
 
@@ -206,7 +206,7 @@ function ensureSettingsInline(visible) {
       );
     }
   } catch (e) {
-    console.warn('[UI] failed to postMessage to settings iframe', e);
+    console.log('[UI] failed to postMessage to settings iframe', e);
   }
 
   // iframe表示後に高さを自動調整（コンテンツ高に合わせる）
@@ -222,7 +222,7 @@ function ensureSettingsInline(visible) {
           settingsFrame.style.height = finalH + 'px';
         }
       } catch (e) {
-        console.warn('[UI] settings iframe auto-size failed:', e);
+        console.log('[UI] settings iframe auto-size failed:', e);
       }
       requestAnimationFrame(postResize);
     }, 60); // iframeのレンダリングを待ってから高さを取得
@@ -357,7 +357,7 @@ function showAlert(info) {
   pills.style.display = 'flex';
 
   // 履歴に追記
-  try { addToHistory(info); } catch (e) { console.warn('[UI] addToHistory failed', e); }
+  try { addToHistory(info); } catch (e) { console.log('[UI] addToHistory failed', e); }
 
   // Pillコンテナの生成
   const pill = document.createElement('div');
@@ -458,7 +458,7 @@ function shouldPlaySound() {
       return !runtimeSettings.muteMode; // スケジュール無効時は消音モードの逆
     }
   } catch (e) {
-    console.warn('[UI] shouldPlaySound error:', e);
+    console.log('[UI] shouldPlaySound error:', e);
     return !runtimeSettings.muteMode;
   }
 }

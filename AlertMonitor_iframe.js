@@ -50,7 +50,7 @@ function ensureUIFrame() {
 
   // Splunkの row1 要素を親として挿入を試みる（なければ body に追加）
   const targetParent = document.getElementById('row1');
-  if (!targetParent) console.warn("[Ext] 'row1' not found. Insert UI iframe under body.");
+  if (!targetParent) console.log("[Ext] 'row1' not found. Insert UI iframe under body.");
 
   // iframeを生成し、UI_Panel.html を読み込む
   uiFrame = document.createElement('iframe');
@@ -117,7 +117,7 @@ async function startObserve() {
       observer.observe(target, { childList: true, subtree: true });
       console.log(`[Observer] 監視開始: ${id}`);
     } else {
-      console.warn(`[Observer] IDが見つかりませんでした: ${id}`);
+      console.log(`[Observer] IDが見つかりませんでした: ${id}`);
     }
   });
 
