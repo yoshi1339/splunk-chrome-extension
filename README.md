@@ -1,7 +1,11 @@
 # splunk-chrome-extension
 本プログラムは、Splunkのダッシュボード画面（DOM）をリアルタイムで監視し、特定の数値が閾値を超えた際にアラーム音と画面上のUIで通知を行うChrome拡張機能です。  
 
-## 大まかな動作フロー  
+## 導入時はmanifest.jsonの以下の部分を任意のドメインに変更してください。
+1. host_permissions
+2. web_accessible_resources内のmatches
+
+### 大まかな動作フロー  
 1. 拡張機能をSplunkページ上で実行
 2. SplunkページのDOM内にUIパネル（iframe）を注入
 3. 「実行」ボタンで指定DOM要素の数値変化をMutationObserverで監視
