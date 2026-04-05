@@ -451,11 +451,14 @@ function showAlert(info) {
 // ===================================================================
 function shouldPlaySound() {
   try {
+    // 消音モードが ON の場合は他の設定に関わらず常に再生しない（最優先）
+    if (runtimeSettings.muteMode) return false;
+
     const sm = runtimeSettings.scheduleMode || { enabled: false };
     if (sm && sm.enabled) {
       return isNowInSchedule(sm); // スケジュール有効時は時間帯内のみ再生
     } else {
-      return !runtimeSettings.muteMode; // スケジュール無効時は消音モードの逆
+      return true; // 消音モードOFF かつ スケジュール無効時は常に再生
     }
   } catch (e) {
     console.log('[UI] shouldPlaySound error:', e);
