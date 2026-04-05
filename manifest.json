@@ -2,7 +2,7 @@
   "name": "SplunkAlarmExtensions",
   "version": "1.0.0",
   "manifest_version": 3,
-  "description": "Inject UI panel only when the toolbar button is clicked (iframe-based UI).",
+  "description": "Chrome extension that monitors Splunk DOM values and triggers alarms.",
   "permissions": [
     "scripting",
     "tabs",
