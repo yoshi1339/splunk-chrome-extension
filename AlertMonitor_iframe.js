@@ -304,11 +304,11 @@ const TARGET_IDS = ['content2', 'content3', 'content4', 'content5', 'content9'];
 // DOM IDからシステム名（またはメッセージ）を返す
 function getSystemResponse(id, mode) {
   const map = {
-    content2: 'システムA',
-    content3: 'システムB',
-    content4: 'システムC',
-    content5: 'システムD',
-    content9: 'システムE'
+    content2: '防護アラート',
+    content3: 'Highアラート',
+    content4: 'Mediumアラート',
+    content5: 'Lowアラート',
+    content9: 'IPS-Disconnected'
   };
   if (!(id in map)) return `指定された ID「${id}」に対応するシステムは存在しません。`;
   const name = map[id];
