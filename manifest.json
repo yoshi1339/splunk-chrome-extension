@@ -11,7 +11,7 @@
     "system.display"
   ],
   "host_permissions": [
-    "<all_urls>"
+    "Replace with any domain"
   ],
   "action": {
     "default_title": "Inject / Toggle SplunkAlarm UI"
@@ -30,7 +30,7 @@
         "SettingWindow.js"
       ],
       "matches": [
-        "<all_urls>"
+        "Replace with any domain"
       ]
     }
   ]
